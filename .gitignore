@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+.env.*
+!.env.example
+public/models/
+public/orthophoto/
+public/pointcloud/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts

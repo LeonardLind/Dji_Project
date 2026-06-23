@@ -1,0 +1,198 @@
+:root {
+  color: #18212c;
+  background: #101820;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+button,
+canvas {
+  font: inherit;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.topbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 56px;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0b1118;
+  backdrop-filter: blur(10px);
+}
+
+.topbar a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #b8c4d1;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.topbar a.active {
+  color: #f5f8fb;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.viewer-page {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #101820;
+}
+
+.canvas-host,
+.orthophoto-canvas,
+.viewer-page > div {
+  width: 100%;
+  height: 100%;
+}
+
+.orthophoto-canvas {
+  display: block;
+  background: #101820;
+  touch-action: none;
+}
+
+.loading-card {
+  padding: 12px 14px;
+  border: 1px solid #d5dde7;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #273445;
+  font-size: 0.92rem;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(16, 24, 32, 0.12);
+}
+
+.overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  max-width: min(480px, calc(100% - 32px));
+}
+
+.layer-panel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  gap: 12px;
+  width: min(260px, calc(100% - 32px));
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(16, 24, 32, 0.78);
+  color: #f5f8fb;
+  backdrop-filter: blur(12px);
+}
+
+.layer-control {
+  display: grid;
+  gap: 10px;
+}
+
+.layer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.toggle-button {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 5px 9px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d7e0eb;
+  cursor: pointer;
+}
+
+.toggle-button.is-on {
+  background: #e8eef5;
+  color: #101820;
+}
+
+.layer-control input[type='range'] {
+  width: 100%;
+  accent-color: #8fb8ff;
+  cursor: grab;
+}
+
+.layer-control input[type='range']:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.pointcloud-panel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  gap: 14px;
+  width: min(280px, calc(100% - 32px));
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(16, 24, 32, 0.78);
+  color: #f5f8fb;
+  backdrop-filter: blur(12px);
+}
+
+.pointcloud-panel label {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.pointcloud-panel input {
+  grid-column: 1 / -1;
+  width: 100%;
+  accent-color: #8fb8ff;
+}
+
+.route-loading {
+  place-self: start;
+  margin: 16px;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    overflow-x: auto;
+    padding-inline: 10px;
+  }
+
+  .topbar a {
+    white-space: nowrap;
+  }
+}
